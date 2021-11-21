@@ -4,7 +4,7 @@ const RouteSchema = new mongoose.Schema({
   from: { type: [Number], required: true },
   to: { type: [Number], required: true },
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true},
-  group: { type: mongoose.Schema.Types.ObjectId, ref: "Group"},
+  group: { type: mongoose.Schema.Types.ObjectId, ref: "Group", default: null},
 
 });
 

@@ -1,6 +1,6 @@
 const express = require("express");
 const UserDao = require("../data/UserDao");
-const { createToken } = require("../util/token");
+const { createToken, decodeToken } = require("../util/token");
 const { verifyPassword } = require("../util/hashing");
 
 const router = express.Router();
@@ -36,6 +36,7 @@ router.post("/authenticate", async (req, res) => {
       });
     } else {
        const token = createToken(user);
+       
       return res.json({
         message: "Authentication successful!",
          token: token,
